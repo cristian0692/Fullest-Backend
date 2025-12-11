@@ -1,0 +1,14 @@
+{
+  "tasks": {
+    "dev": "deno run --watch --allow-env --allow-net --allow-read --env-file src/main.ts",
+    "build": "deno compile main.ts"
+  },
+  "imports": {
+    "?/": "../Shared/",
+    "@types/pg": "npm:@types/pg@^8.15.5",
+    "drizzle-kit": "npm:drizzle-kit@^0.31.5",
+    "drizzle-orm": "npm:drizzle-orm@^0.44.6",
+    "hono": "npm:hono@^4.10.0",
+    "pg": "npm:pg@^8.16.3"
+  }
+}
