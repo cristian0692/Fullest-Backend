@@ -1,6 +1,4 @@
 import { Hono } from "hono";
-import { DBEvent, eventSchema } from "../../drizzle/schema.ts";
-import { db } from "../db/db.ts";
 const event = new Hono();
 
 event.post("/event", async (c) => {

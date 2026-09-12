@@ -1,21 +1,21 @@
 import { db } from "./db.ts";
 import { DBEvent, eventSchema } from "../../drizzle/schema.ts";
-import { DayEvent } from "../../../Shared/types.ts";
+import { DayEventDto } from "../types/DayEventDto.ts";
 export async function findAllEvents() {
   return await db.select().from(eventSchema);
 }
 
-export async function insertEvent(event: DayEvent, dayId: string) {
+export async function insertEvent(event: DayEventDto, dayId: string) {
   if (!event.startTime || !event.endTime) {
     console.log("Start or End time not specified!");
     return;
   }
   const backendEvent: DBEvent = {
     eventId: event.id,
-    endTime: event.endTime.substring(11, 19), // to get the time only for the event
-    startTime: event.startTime.substring(11, 19),
+    endTime: event.endTime, 
+    startTime: event.startTime,
     color: event.color,
-    title: event.title,
+    title: event.name,
     description: event.description,
     dayId: dayId,
   };

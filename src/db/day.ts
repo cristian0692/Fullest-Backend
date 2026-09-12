@@ -5,10 +5,9 @@ export async function findAllDays() {
 }
 
 export async function insertDay(
-  day: string,
+  day: Date,
   endTime: string,
-  startTime: string,
-): Promise<DBDay> {
+  startTime: string): Promise<DBDay> {
   console.log(day);
   const dayObj: DBDay = {
     dayId: crypto.randomUUID(),

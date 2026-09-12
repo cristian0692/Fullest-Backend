@@ -1,24 +1,24 @@
 import { Hono } from "hono";
-import type { DayData } from "?/types.ts";
 import { insertEvent } from "../db/event.ts";
 import { insertDay } from "../db/day.ts";
 import { DBDay } from "../../drizzle/schema.ts";
+import { Day } from "../types/Day.ts";
 const day = new Hono();
 
 day.post("/day", async (c) => {
-  const bodyData: DayData = await c.req.json();
+  const day: Day = await c.req.json();
 
-  const day: DBDay = await insertDay(
-    bodyData.day,
-    bodyData.startTime,
-    bodyData.endTime,
+  const response: DBDay = await insertDay(
+    day.date,
+    day.startTime,
+    day.endTime    
   );
-  bodyData.events.forEach((event) => {
-    insertEvent(event, day.dayId);
+  day.events.forEach((event) => {
+    insertEvent(event, response.dayId);
   });
   return c.json({
     message: "Successfully processed event",
-    receivedData: bodyData,
+    receivedData: response,
   });
 });
 
