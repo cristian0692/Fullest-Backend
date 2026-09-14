@@ -14,8 +14,8 @@ export const userSchema = pgTable("users", {
 
 export const daySchema = pgTable("days", {
 	dayId: varchar("day_id", { length: 40 }).primaryKey().notNull(),
-	startTime: date("start_time").notNull(),
-	endTime: date("end_time").notNull(),
+	startTime: varchar("start_time", {length: 8}).notNull(),
+	endTime: varchar("end_time", {length: 8}).notNull(),
 	userId: varchar("user_id", { length: 40 }),
 }, (table) => [
 	foreignKey({

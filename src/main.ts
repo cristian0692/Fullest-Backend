@@ -12,4 +12,4 @@ api.route("/api", user);
 api.route("/api",day);
 api.notFound((c) => c.json({ message: "Not Found" }, 404));
 
-Deno.serve(api.fetch);
+Deno.serve({ port: 8123 }, api.fetch);

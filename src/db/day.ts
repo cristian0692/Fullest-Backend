@@ -18,3 +18,4 @@ export async function insertDay(
   await db.insert(daySchema).values(dayObj);
   return dayObj;
 }
+

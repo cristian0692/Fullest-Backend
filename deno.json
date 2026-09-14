@@ -1,7 +1,11 @@
 {
   "tasks": {
     "dev": "deno run --watch --allow-env --allow-net --allow-read --env-file src/main.ts",
-    "build": "deno compile main.ts"
+    "build": "deno compile main.ts",
+    "db:push": "deno run -A npm:drizzle-kit push",
+    "db:generate": "deno run -A npm:drizzle-kit generate",
+    "db:migrate": "deno run -A npm:drizzle-kit migrate",
+    "db:studio": "deno run -A npm:drizzle-kit studio"
   },
   "imports": {
     "?/": "../Shared/",

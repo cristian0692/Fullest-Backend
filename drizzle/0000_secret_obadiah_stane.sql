@@ -1,6 +1,3 @@
--- Current sql file was generated after introspecting the database
--- If you want to run this migration please uncomment this code before executing migrations
-/*
 CREATE TABLE "users" (
 	"user_id" varchar(40) PRIMARY KEY NOT NULL,
 	"first_name" varchar(50) NOT NULL,
@@ -28,4 +25,3 @@ CREATE TABLE "events" (
 --> statement-breakpoint
 ALTER TABLE "days" ADD CONSTRAINT "days_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."users"("user_id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "events" ADD CONSTRAINT "events_day_id_fkey" FOREIGN KEY ("day_id") REFERENCES "public"."days"("day_id") ON DELETE no action ON UPDATE no action;
-*/

@@ -22,3 +22,4 @@ export async function insertEvent(event: DayEventDto, dayId: string) {
 
   return await db.insert(eventSchema).values(backendEvent);
 }
+
