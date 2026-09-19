@@ -6,16 +6,17 @@ export async function findAllDays() {
 
 export async function insertDay(
   day: Date,
+  startTime: string,
   endTime: string,
-  startTime: string): Promise<DBDay> {
-  console.log(day);
+): Promise<DBDay> {
+
   const dayObj: DBDay = {
     dayId: crypto.randomUUID(),
+    date: day.toISOString(),
     endTime: endTime,
     startTime: startTime,
     userId: "1",
   };
   await db.insert(daySchema).values(dayObj);
-  return dayObj;
+  return  dayObj;
 }
-

@@ -9,7 +9,7 @@ day.post("/day", async (c) => {
   const day: Day = await c.req.json();
 
   const response: DBDay = await insertDay(
-    day.date,
+    new Date(),
     day.startTime,
     day.endTime    
   );
