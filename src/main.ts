@@ -4,11 +4,9 @@ import { cors } from "hono/cors";
 import { user } from "./router/user.ts";
 import { day } from "./router/day.ts";
 import { login } from "./router/login.ts";
+import { startUp } from "./db/general.ts";
 
 const api = new Hono();
-
-
-
 
 api.use("*", logger());
 api.use(
@@ -25,3 +23,5 @@ api.route("/login", login);
 api.notFound((c) => c.json({ message: "Not Found" }, 404));
 
 Deno.serve({ port: 8123 }, api.fetch);
+
+startUp();

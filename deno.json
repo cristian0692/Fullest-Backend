@@ -10,6 +10,7 @@
   "imports": {
     "?/": "../Shared/",
     "@types/pg": "npm:@types/pg@^8.15.5",
+    "argon2": "npm:argon2@^0.45.1",
     "drizzle-kit": "npm:drizzle-kit@^0.31.5",
     "drizzle-orm": "npm:drizzle-orm@^0.44.6",
     "hono": "npm:hono@^4.10.0",
