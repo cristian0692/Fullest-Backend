@@ -45,7 +45,7 @@ export const eventSchema = pgTable("events", {
     columns: [table.dayId],
     foreignColumns: [daySchema.dayId],
     name: "events_day_id_fkey",
-  }),
+  }).onDelete("cascade"),
 ]);
 export type DBUser = InferInsertModel<typeof userSchema>;
 
